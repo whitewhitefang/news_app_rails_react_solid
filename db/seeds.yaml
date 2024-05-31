@@ -1,0 +1,16 @@
+articles:
+  - header: "Seeded news #1"
+    body: "Some words about news"
+    published: true
+  - header: "Seeded news #2"
+    body: "Some words about news"
+    published: true
+  - header: "Seeded news #3"
+    body: "Some words about news"
+    published: true
+  - header: "Seeded news #4"
+    body: "Some words about news"
+    published: true
+  - header: "Seeded news #5"
+    body: "Some words about news"
+    published: true

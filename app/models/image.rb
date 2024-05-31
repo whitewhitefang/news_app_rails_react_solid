@@ -1,4 +1,5 @@
-class Image < ApplicationRecord
+class Image < ApplicationRecord  
+
 
   private
   

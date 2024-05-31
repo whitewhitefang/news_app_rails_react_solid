@@ -4,7 +4,16 @@
 #
 # Example:
 #
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+puts "Seed not hidden articles examples in"
+5.times do |n|
+  Article.find_or_create_by!(header: "Seeded news ##{n}", body: "Some words about news ##{n}", published: true)
+end
+
+puts "Seed hidden articles examples in"
+3.times do |n|
+  Article.find_or_create_by!(header: "Seeded news ##{n}", body: "Some words about news ##{n}", published: false)
+end
+
+puts "Seed admin user in"
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

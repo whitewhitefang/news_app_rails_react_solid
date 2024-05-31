@@ -39,4 +39,10 @@ module NewsAppRailsReactSolid
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
+
+  Rails.configuration.to_prepare do
+    require_relative '../app/ext/active_storage/ransackable_attachment.rb'
+    require_relative '../app/ext/active_storage/ransackable_blob.rb'
+    require_relative '../app/ext/active_storage/ransackable_variant_record.rb'
+  end
 end
