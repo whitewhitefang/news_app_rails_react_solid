@@ -64,3 +64,7 @@ group :development do
 
 end
 
+# Auth and admins
+gem "devise", "~> 4.9"
+gem 'activeadmin'
+gem 'sassc-rails'

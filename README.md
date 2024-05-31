@@ -1,9 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About an app
 
-Things you may want to cover:
+An example of solid app implemented in Rails with React library.
+
+## Requirements
+
+Ruby 3.2.2, NodeJS 18.6.0, MySQL 8.0.36
 
 * Ruby version
 
