@@ -1,7 +1,10 @@
 ActiveAdmin.register Article do
   permit_params :header, :body, :published, :image
   menu priority: 2
-
+  
+  scope :all
+  scope :published
+  scope :hidden
 
   index do
     id_column
@@ -11,7 +14,7 @@ ActiveAdmin.register Article do
 
     column :image do |article|
       if article.image.attached?
-        image_tag url_for(article.image), size: '50x50'
+        image_tag url_for(article.image), size: '100x100'
       end
     end
 
@@ -24,7 +27,7 @@ ActiveAdmin.register Article do
 
       row :image do |article|
         if article.image.attached?
-          image_tag url_for(article.image), size: '50x50'
+          image_tag url_for(article.image), size: '100x100'
         end
       end
     end    
@@ -40,7 +43,7 @@ ActiveAdmin.register Article do
       if f.object.image.attached?
         f.inputs 'Current Image' do
           div do
-            image_tag url_for(f.object.image), size: '50x50'
+            image_tag url_for(f.object.image), size: '100x100'
           end
           f.input :remove_image, as: :boolean, label: 'Remove image'
         end

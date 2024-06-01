@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      resources :articles
+    end
+  end
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :admins
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # Route all requests to React
+  root to: 'homepage#index'
+  get 'articles', to: 'articles#index'
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # 404 page route
+  get '*path', to: 'homepage#no_page', constraints: ->(req) { !(req.fullpath =~ /^\/admin/) && !(req.fullpath =~ /^\/admin_users/) }
 end

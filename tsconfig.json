@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    // ... другие настройки компилятора ...
+
+    // Включение строгих проверок типизации
+    "strict": true,
+
+    // Принудительное соблюдение регистра в именах файлов
+    "forceConsistentCasingInFileNames": true,
+
+    // Настройки для работы с React и JSX
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment",
+
+    // Базовый путь и пути к файлам деклараций
+    "baseUrl": "./",
+    "paths": {
+      "@hotwired/turbo-rails": ["app/javascript/types/turbo-rails.d.ts"]
+    }
+  },
+  "include": [
+    "app/javascript/**/*.ts",
+    "app/javascript/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -6,22 +6,22 @@ An example of solid app implemented in Rails with React library.
 
 ## Requirements
 
-Ruby 3.2.2, NodeJS 18.6.0, MySQL 8.0.36
+Ruby 3.2.1, NodeJS 18.6.0, MySQL 8.0.36
 
-* Ruby version
+## Install app and connect to DB with seeding some data
 
-* System dependencies
+```bundle```
 
-* Configuration
+```rails db:reset```
 
-* Database creation
+## Run in dev mode
 
-* Database initialization
+```bin/dev```
 
-* How to run the test suite
+Then open localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
+## Access for admins
 
-* Deployment instructions
+Open localhost:3000/admin
 
-* ...
+Guest access by name "admin@example.com" and password "password"
