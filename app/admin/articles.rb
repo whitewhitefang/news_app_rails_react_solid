@@ -14,7 +14,7 @@ ActiveAdmin.register Article do
 
     column :image do |article|
       if article.image.attached?
-        image_tag url_for(article.image), size: '100x100'
+        image_tag url_for(article.thumbnail)
       end
     end
 

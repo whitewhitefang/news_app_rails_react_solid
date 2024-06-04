@@ -1,42 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import Article from "./Article";
 
-const Articles = () => {
+export default function Articles() {
   const [articles, setArticles] = useState([]);
+  // const [currentArticle, setCurrentArticle] = useState({})
 
   useEffect(() => {
     axios.get('/api/v1/articles')
       .then(response => {
-        setArticles(response.data);
+        setArticles(response.data);        
       })
       .catch(error => {
         console.error('Error fetching articles:', error);
       });
   }, []);
+  return (    
+    <div className="container-fluid">
 
-  <div className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
-    <h1 className="display-4">News</h1>
-      {articles.map(article => (
-        <li key={article.id}>
-          <h3>{article.header}</h3>
-          <div>
-            {article.image && <img src={article.image} alt="" />}
-          </div>
-          <div>
-            <p>{article.body}</p>
-            <Link
-              to={`/articles/show/${article.id}`}
-              className="btn btn-lg"
-              role="button"
-            >
-              Read more
-            </Link>
-          </div>
+      <div className="container secondary-color">
+        <h1 className="display-4">News</h1>        
+        <hr className="my-4" />      
+      </div>      
+      
+      <div>
+        <h1 className="display-6">News</h1>
+        <ul className="list-group">        
 
-        </li>
-      ))}
-  </div>
+        {articles.map(article => (
+          <Article key={article.id} {...article} /> 
+        ))}
+
+        </ul>
+      </div> 
+    </div>
+  );  
 };
-
-export default Articles;

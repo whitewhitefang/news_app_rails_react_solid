@@ -9,6 +9,9 @@ class Article < ApplicationRecord
   scope :published, ->(order = :desc) { where(published: true).order(created_at: order) }
   scope :hidden, -> { where(published: false) }
 
+  def thumbnail
+    image.variant(resize_to_limit: [100, 100], format: 'jpg').processed
+  end
 
   def has_attachment?
     return false if image_attachment.nil?
