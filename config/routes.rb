@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   resources :articles
 
   # 404 Rails page route
-  # get '*path', to: 'no_page#index', constraints: ->(req) { !(req.fullpath =~ /^\/admin/) && !(req.fullpath =~ /^\/admin_users/) }
+  get '*path', to: 'no_page#index', constraints: ->(req) { !(req.fullpath =~ /^\/admin/) && !(req.fullpath =~ /^\/admin_users/) && !(req.fullpath =~ /^\/rails/) }
 end
